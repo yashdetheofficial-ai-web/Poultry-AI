@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://yashuuu.github.io/Poultry-AI/sitemap.xml
+Sitemap: https://yashdetheofficial-ai-web.github.io/Poultry-AI/sitemap.xml
