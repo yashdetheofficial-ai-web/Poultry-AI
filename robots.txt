@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://yashuuu.github.io/Poultry-AI/sitemap.xml
