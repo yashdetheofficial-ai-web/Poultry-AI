@@ -179,19 +179,21 @@ function updateSchemeLabels() {
     if(whoEl)  whoEl.textContent  = s.who;
   });
   const titles = {
-    mr:"🏛️ पोल्ट्री सरकारी योजना (Current 2024-25)",
-    en:"🏛️ Poultry Government Schemes (Current 2024-25)",
-    hi:"🏛️ पोल्ट्री सरकारी योजनाएं (Current 2024-25)"
+    mr:"🏛️ पोल्ट्री सरकारी योजना (Current 2025-26)",
+    en:"🏛️ Poultry Government Schemes (Current 2025-26)",
+    hi:"🏛️ पोल्ट्री सरकारी योजनाएं (Current 2025-26)"
   };
+  const btnHTML = '<a href="tel:18001801551" class="call-btn">📞 Call Helpline: 1800-180-1551</a>';
+  const tfHTML = '<p style="font-size:0.55rem; margin-top:5px; opacity:0.6;">(Toll Free | केंद्र शासन पोल्ट्री मदत केंद्र)</p>';
   const noteMap = {
-    mr:"📞 अधिक माहितीसाठी: जिल्हा पशुसंवर्धन कार्यालय | Helpline: 1800-180-1551 (Toll Free)",
-    en:"📞 For more info: District Animal Husbandry Office | Helpline: 1800-180-1551 (Toll Free)",
-    hi:"📞 अधिक जानकारी: जिला पशुपालन कार्यालय | Helpline: 1800-180-1551 (Toll Free)"
+    mr:`<p style="margin-bottom:5px;">📞 अधिक माहितीसाठी: जिल्हा पशुसंवर्धन कार्यालय</p>${btnHTML}${tfHTML}`,
+    en:`<p style="margin-bottom:5px;">📞 For more info: District Animal Husbandry Office</p>${btnHTML}${tfHTML}`,
+    hi:`<p style="margin-bottom:5px;">📞 अधिक जानकारी: जिला पशुपालन कार्यालय</p>${btnHTML}${tfHTML}`
   };
   const tEl = document.getElementById("yojanaMainTitle");
   if(tEl) tEl.textContent = titles[LANG]||titles.mr;
   const nEl = document.getElementById("schemeNote");
-  if(nEl) nEl.textContent = noteMap[LANG]||noteMap.mr;
+  if(nEl) nEl.innerHTML = noteMap[LANG]||noteMap.mr;
 }
 
 // ── Load All Live Data ─────────────────────────────────
