@@ -139,9 +139,7 @@ const ChatBox = () => {
         >
           {uiState === "idle" ? "🎙️" : uiState === "listening" ? "🔴" : "🔊"}
         </button>
-        <span style={{fontSize:'0.7rem', color:'var(--muted)', fontWeight:'600'}}>{
-          uiState === "idle" ? s.idle : uiState === "listening" ? s.listening : s.speaking
-        }</span>
+        <span className="mic-status">{uiState === "idle" ? s.idle : uiState === "listening" ? s.listening : s.speaking}</span>
       </div>
 
       <div className="chat-container" ref={chatRef}>
@@ -153,12 +151,12 @@ const ChatBox = () => {
         ))}
       </div>
 
-      <div className="glass-card" style={{marginTop:'12px'}}>
-        <div className="glass-title">🔥 Topics — Click to ask</div>
+      <div className="glass-card" style={{marginTop:'4px'}}>
+        <div className="glass-title">🔥 {lang === 'mr' ? 'विषय — विचारण्यासाठी क्लिक करा' : lang === 'hi' ? 'विषय — पूछने के लिए क्लिक करें' : 'Topics — Click to ask'}</div>
         <div className="topics">
           {topics.map((t, i) => (
             <button key={i} className="tbtn" onClick={() => processQuery(t.q)}>
-              {t.e} {t.l}
+              <span>{t.e} {t.l}</span>
             </button>
           ))}
         </div>

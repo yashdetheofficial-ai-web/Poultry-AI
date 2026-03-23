@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Header from './components/Header';
 import Dashboard from './components/Dashboard';
 import ChatBox from './components/ChatBox';
@@ -13,17 +13,16 @@ const App = () => {
     <>
       <Cursor />
       <div className="bg"></div>
+      <div className="dot-grid"></div>
       <div className="wrap">
         <Header />
-        
         <ChatBox />
-        
         <Dashboard />
-        
         <SchemeList />
-        
-        <div style={{textAlign:'center', marginTop:'24px', opacity:0.6, fontSize:'0.7rem', paddingBottom:'20px'}}>
-          Poultry AI &copy; 2025 Dethe Patil Farming
+        <div className="footer">
+          <span>🐔 Poultry AI &copy; 2025 </span>
+          <a href="https://yashdetheofficial-ai-web.github.io/Poultry-AI/" target="_blank" rel="noopener">Dethe Patil Farming</a>
+          <span> — {lang === 'mr' ? 'कुक्कुटपालन AI' : lang === 'hi' ? 'मुर्गी पालन AI' : 'Poultry Intelligence'}</span>
         </div>
       </div>
     </>
