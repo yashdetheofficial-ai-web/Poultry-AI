@@ -300,7 +300,7 @@ const TOPIC_LABELS = {
 };
 
 const EGG_CITIES = {
-  mr:["महाराष्ट्र","दिल्ली","बंगळूर","हैदराबाद"],
-  en:["Maharashtra","Delhi","Bangalore","Hyderabad"],
-  hi:["महाराष्ट्र","दिल्ली","बैंगलुरू","हैदराबाद"]
+  mr:["मुंबई","पुणे","नागपूर"],
+  en:["Mumbai","Pune","Nagpur"],
+  hi:["मुंबई","पुणे","नागपुर"]
 };

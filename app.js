@@ -70,39 +70,49 @@ function showWeatherTip(temp, hum) {
 // ── Egg Rates ──────────────────────────────────────────
 async function fetchEggRates() {
   try {
-    const proxyUrl = "https://api.allorigins.win/get?url=" + encodeURIComponent("https://www.necc.co.in/");
-    const res  = await fetch(proxyUrl, {signal: AbortSignal.timeout(6000)});
+    const targetUrl = "https://www.commodityonline.com/egg-rate/maharashtra";
+    const proxyUrl = "https://api.allorigins.win/get?url=" + encodeURIComponent(targetUrl);
+    const res  = await fetch(proxyUrl, {signal: AbortSignal.timeout(8000)});
     const data = await res.json();
     const html = data.contents || "";
-    const prices = html.match(/\d\.\d{2,3}/g);
-    if (prices && prices.length >= 4) {
-      const filtered = prices.filter(p => parseFloat(p) > 4 && parseFloat(p) < 12);
-      if (filtered.length >= 4) {
-        updateEggUI(filtered[0], filtered[1], filtered[2], filtered[3], true);
-        return;
-      }
+    
+    // Improved Regex to find Marathi/English city names and rates
+    const findRate = (city) => {
+      const re = new RegExp(`<td>${city}<\\/td>\\s*<td>[\\d.]+<\\/td>\\s*<td>(\\d+)<\\/td>`, "i");
+      const m = html.match(re);
+      return m ? m[1] : null;
+    };
+
+    const mumbai = findRate("Mumbai \\(CC\\)");
+    const pune   = findRate("Pune");
+    const nagpur = findRate("Nagpur");
+
+    if (mumbai && pune && nagpur) {
+      updateEggUI(mumbai, pune, nagpur, null, true);
+      return;
     }
-  } catch(_) {}
+  } catch(e) { console.error("Egg Fetch Error:", e); }
   useEstimatedRates();
 }
 
-function updateEggUI(mh, dl, bl, hy, isLive) {
-  document.getElementById("ep1").textContent = "₹"+mh;
-  document.getElementById("ep2").textContent = "₹"+dl;
-  document.getElementById("ep3").textContent = "₹"+bl;
-  document.getElementById("ep4").textContent = "₹"+hy;
-  const src = isLive ? "🟢 LIVE - NECC" : "📊 Estimated";
-  document.getElementById("eggTitle").textContent = (LIVE_LABELS[LANG]||LIVE_LABELS.mr) + " — " + src;
+function updateEggUI(mumbai, pune, nagpur, dummy, isLive) {
+  const el1 = document.getElementById("ep1"); if(el1) el1.textContent = "₹"+mumbai;
+  const el2 = document.getElementById("ep2"); if(el2) el2.textContent = "₹"+pune;
+  const el3 = document.getElementById("ep3"); if(el3) el3.textContent = "₹"+nagpur;
+  
+  const src = isLive ? "🟢 LIVE - CommodityOnline" : "📊 Estimated";
+  const tit = document.getElementById("eggTitle");
+  if(tit) tit.textContent = (LIVE_LABELS[LANG]||LIVE_LABELS.mr) + " — " + src;
 }
 
 function useEstimatedRates() {
   const seed = new Date().getDate();
-  const base = 5.60 + (seed % 8) * 0.05;
+  const base = 460 + (seed % 10) * 5;
   updateEggUI(
-    (base + 0.20).toFixed(2),
-    (base + 0.35).toFixed(2),
-    (base + 0.10).toFixed(2),
-    (base + 0.05).toFixed(2),
+    (base + 10),
+    (base + 5),
+    (base - 10),
+    null,
     false
   );
 }
@@ -215,20 +225,20 @@ const DASH_LABELS = {
 
 function updateDashLabels() {
   const lb = DASH_LABELS[LANG]||DASH_LABELS.mr;
-  document.getElementById("tempLabel").textContent    = lb.temp;
-  document.getElementById("humLabel").textContent     = lb.hum;
-  document.getElementById("broilerLabel").textContent = lb.broiler;
-  document.getElementById("timeLabel").textContent    = lb.time;
-  document.getElementById("tempSub").textContent      = lb.tempS;
-  document.getElementById("humSub").textContent       = lb.humS;
-  document.getElementById("liveTxt").textContent      = lb.live;
-  document.getElementById("eggTitle").textContent     = LIVE_LABELS[LANG]||LIVE_LABELS.mr;
+  const tL = document.getElementById("tempLabel");    if(tL) tL.textContent = lb.temp;
+  const hL = document.getElementById("humLabel");     if(hL) hL.textContent = lb.hum;
+  const bL = document.getElementById("broilerLabel"); if(bL) bL.textContent = lb.broiler;
+  const tiL = document.getElementById("timeLabel");   if(tiL) tiL.textContent = lb.time;
+  const tS = document.getElementById("tempSub");      if(tS) tS.textContent = lb.tempS;
+  const hS = document.getElementById("humSub");       if(hS) hS.textContent = lb.humS;
+  const lT = document.getElementById("liveTxt");      if(lT) lT.textContent = lb.live;
+  const eT = document.getElementById("eggTitle");     if(eT) eT.textContent = LIVE_LABELS[LANG]||LIVE_LABELS.mr;
   setLastUpdated();
   const ec = EGG_CITIES[LANG]||EGG_CITIES.mr;
-  document.getElementById("c1").textContent = ec[0];
-  document.getElementById("c2").textContent = ec[1];
-  document.getElementById("c3").textContent = ec[2];
-  document.getElementById("c4").textContent = ec[3];
+  const c1 = document.getElementById("c1"); if(c1) c1.textContent = ec[0];
+  const c2 = document.getElementById("c2"); if(c2) c2.textContent = ec[1];
+  const c3 = document.getElementById("c3"); if(c3) c3.textContent = ec[2];
+  const c4 = document.getElementById("c4"); if(c4) c4.textContent = ec[3];
 }
 
 // ── Language Selector ──────────────────────────────────
