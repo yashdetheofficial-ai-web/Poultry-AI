@@ -7,25 +7,37 @@
   <meta name="google-site-verification" content="DUKI9REJKp5VhSO6nVNOecDMJoeKy3BZ99KIEAP6AOY" />
   
   <!-- Primary SEO Meta Tags -->
-  <title>🐔 Poultry AI | India's #1 AI Assistant for Poultry Farmers</title>
-  <meta name="title" content="🐔 Poultry AI | India's #1 AI Assistant for Poultry Farmers">
-  <meta name="description" content="Poultry AI is an intelligent smart assistant designed for poultry farmers. Get live NECC egg rates, broiler rates, medicine info, disease solutions, and 2024 government schemes in Marathi, Hindi & English.">
-  <meta name="keywords" content="Poultry AI, Poultry Farming AI, AI assistant for farmers, Live Egg Rates, NECC egg rate today, Broiler live rate, Poultry medicine search, Enrofloxacin dose poultry, Poultry government schemes 2024, Poultry Farm business, poultry farm subsidy, Patil Farming, कुक्कुटपालन माहिती">
+  <title>🐔 Poultry AI by Dethe Patil Farming | India's #1 AI Assistant</title>
+  <meta name="title" content="🐔 Poultry AI by Dethe Patil Farming | India's #1 AI Assistant">
+  <meta name="description" content="Poultry AI by Dethe Patil Farming: The ultimate smart assistant for poultry farmers. Get live NECC egg rates, broiler rates, medicine info, and 2024 government schemes.">
+  <meta name="keywords" content="Dethe Patil Farming, Poultry AI, Poultry Farming AI, AI assistant for farmers, Live Egg Rates, NECC egg rate today, Broiler live rate, Poultry medicine search, Patil Farming, कुक्कुटपालन माहिती">
   <meta name="author" content="Dethe Patil Farming">
   <meta name="robots" content="index, follow">
 
   <!-- Open Graph / Facebook / WhatsApp -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://yashdetheofficial-ai-web.github.io/Poultry-AI/">
-  <meta property="og:title" content="🐔 Poultry AI | India's #1 AI Assistant for Poultry Farmers">
-  <meta property="og:description" content="Get instant voice answers for poultry farming, live egg rates, medicine info, and government schemes in Marathi, Hindi & English.">
+  <meta property="og:title" content="🐔 Poultry AI by Dethe Patil Farming | India's #1 AI Assistant">
+  <meta property="og:description" content="Get instant voice answers for poultry farming, live egg rates, medicine info, and government schemes. Powered by Dethe Patil Farming.">
+  <meta property="og:image" content="https://yashdetheofficial-ai-web.github.io/Poultry-AI/og-image.png">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://yashdetheofficial-ai-web.github.io/Poultry-AI/">
+  <meta property="twitter:title" content="🐔 Poultry AI by Dethe Patil Farming | India's #1 AI Assistant">
+  <meta property="twitter:description" content="India's best AI voice assistant for poultry farmers. Live rates, medicine info, and business guides.">
+  <meta property="twitter:image" content="https://yashdetheofficial-ai-web.github.io/Poultry-AI/twitter-image.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
   
   <!-- Structured Data JSON-LD for Rich Google Snippet -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "Poultry AI",
+    "name": "Poultry AI by Dethe Patil Farming",
     "url": "https://yashdetheofficial-ai-web.github.io/Poultry-AI/",
     "description": "India's best AI voice assistant for poultry farmers. Provides real-time egg/broiler rates, medicine search, and poultry business guides in native languages.",
     "applicationCategory": "BusinessApplication",
@@ -175,6 +187,9 @@
     footer{text-align:center;padding:12px 10px;color:var(--muted);font-size:.68rem}
     @media(min-width:600px){.mic-sec{flex-direction:row;justify-content:center;gap:clamp(16px,4vw,36px)}.mic-info{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:7px}#statusLbl{text-align:left}}
     @media(max-height:500px) and (orientation:landscape){header{padding:4px 0}.logo{font-size:26px}.mic-sec{flex-direction:row;gap:14px;margin:6px 0}#micBtn{width:66px;height:66px;font-size:24px}#chatBox{min-height:80px;max-height:26vh}}
+    .glass-card{background:rgba(255,255,255,0.03);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.08);border-radius:18px;padding:clamp(12px,3vw,18px);margin:10px 0;transition:transform 0.2s,border-color 0.2s}
+    .glass-card:hover{border-color:rgba(255,255,255,0.15);transform:translateY(-2px)}
+    .glass-title{font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
   </style>
 </head>
 <body>
@@ -234,6 +249,28 @@
       <div class="dc-title" id="timeLabel">🕐 Current Time</div>
       <div class="dc-val" id="liveTime">--:--</div>
       <div class="dc-sub" id="dateSub">--</div>
+    </div>
+  </div>
+
+  <!-- Egg Rates Section (CommodityOnline Data) -->
+  <div class="glass-card" style="border-color:rgba(245,197,24,0.3)">
+    <div class="glass-title" id="eggTitle" style="color:var(--gold)">🥚 LOADING EGG RATES...</div>
+    <div class="live-dash" style="margin:0">
+      <div class="dash-card rate-card">
+        <div class="dc-title" id="c1">MUMBAI</div>
+        <div class="dc-val" id="ep1">₹--</div>
+        <div class="dc-sub">Per 100 Pcs</div>
+      </div>
+      <div class="dash-card rate-card">
+        <div class="dc-title" id="c2">PUNE</div>
+        <div class="dc-val" id="ep2">₹--</div>
+        <div class="dc-sub">Per 100 Pcs</div>
+      </div>
+      <div class="dash-card rate-card">
+        <div class="dc-title" id="c3">NAGPUR</div>
+        <div class="dc-val" id="ep3">₹--</div>
+        <div class="dc-sub">Per 100 Pcs</div>
+      </div>
     </div>
   </div>
 
@@ -341,8 +378,8 @@
   </div>
 
   <!-- Medicine Search Section -->
-  <div class="med-section">
-    <div class="med-title" id="medSectionTitle">💊 औषध शोधा (Medicine Search)</div>
+  <div class="glass-card" style="border-color:rgba(108,92,231,0.25)">
+    <div class="glass-title" id="medSectionTitle" style="color:#a29bfe">💊 औषध शोधा (Medicine Search)</div>
     <div class="med-row">
       <input class="med-input" id="medInput" type="text" placeholder="औषधाचे नाव टाका (उदा. Enrofloxacin, Amprolium...)"/>
       <button class="med-btn" id="medSearch">🔍 शोधा</button>
