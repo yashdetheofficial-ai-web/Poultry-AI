@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Dashboard from './components/Dashboard';
 import ChatBox from './components/ChatBox';
 import SchemeList from './components/SchemeList';
+import Cursor from './components/Cursor';
 import { useLanguage } from './context/LanguageContext';
 
 const App = () => {
@@ -10,6 +11,7 @@ const App = () => {
 
   return (
     <>
+      <Cursor />
       <div className="bg"></div>
       <div className="wrap">
         <Header />

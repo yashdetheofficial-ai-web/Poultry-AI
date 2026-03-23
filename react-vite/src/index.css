@@ -165,7 +165,7 @@ header {
 .topics { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
 .tbtn {
   background: rgba(123, 43, 249, 0.05); border: 1px solid rgba(123, 43, 249, 0.15); border-radius: 22px;
-  padding: 10px 20px; font-size: 0.85rem; color: #fff; cursor: pointer; transition: 0.3s; font-weight: 700;
+  padding: 10px 20px; font-size: 0.85rem; color: #fff; cursor: none; transition: 0.3s; font-weight: 700;
 }
 .tbtn:hover { background: var(--purple); border-color: var(--purple); transform: scale(1.08); box-shadow: 0 10px 20px var(--purple-glow); }
 
@@ -179,4 +179,46 @@ header {
 .sc-name { font-size: 0.95rem; font-weight: 800; margin-bottom: 8px; color: #fff; }
 .sc-subsidy { font-size: 0.75rem; color: var(--gold); font-weight: 800; margin-bottom: 10px; }
 .sc-desc { font-size: 0.75rem; color: var(--muted); margin-bottom: 14px; line-height: 1.6; }
+
+/* ─── Custom BAAP Cursor ─────────────────────────────── */
+* { cursor: none !important; }
+
+.cursor-outer {
+  position: fixed; top: 0; left: 0; z-index: 99999; pointer-events: none;
+  width: 36px; height: 36px; border-radius: 50%;
+  border: 2px solid var(--purple);
+  transform: translate(-50%, -50%);
+  transition: transform 0.12s ease, width 0.2s ease, height 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  mix-blend-mode: normal;
+}
+.cursor-inner {
+  position: fixed; top: 0; left: 0; z-index: 100000; pointer-events: none;
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--purple);
+  transform: translate(-50%, -50%);
+  transition: transform 0.05s ease, width 0.15s ease, height 0.15s ease, background 0.2s ease;
+  box-shadow: 0 0 10px var(--purple-glow), 0 0 20px var(--purple-glow);
+}
+
+/* Hover state — cursor expands and glows */
+body.cur-hover .cursor-outer {
+  width: 56px; height: 56px;
+  border-color: rgba(123, 43, 249, 0.5);
+  background: rgba(123, 43, 249, 0.08);
+}
+body.cur-hover .cursor-inner {
+  width: 10px; height: 10px;
+  background: #fff;
+  box-shadow: 0 0 15px var(--purple), 0 0 35px var(--purple-glow);
+}
+
+/* Click state */
+body.cur-click .cursor-outer { transform: translate(-50%, -50%) scale(0.8); border-color: #fff; }
+body.cur-click .cursor-inner { transform: translate(-50%, -50%) scale(1.5); background: #fff; }
+
+@media (hover: none) and (pointer: coarse) {
+  /* hide custom cursor on touchscreens */
+  .cursor-outer, .cursor-inner { display: none; }
+  * { cursor: auto !important; }
+}
 
