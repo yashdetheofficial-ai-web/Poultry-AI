@@ -10,7 +10,7 @@ const Header = () => {
         <div className="logo">🐔</div>
         <div>
           <div className="title">Poultry AI</div>
-          <div className="tagline">BY YASH DETHE PATIL</div>
+          <div className="tagline">BY Dethe Patil Poultry Intelligence in Farming</div>
         </div>
       </div>
       <div className="lang-sel">

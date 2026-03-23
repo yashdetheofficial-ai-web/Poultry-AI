@@ -10,9 +10,7 @@ const App = () => {
 
   return (
     <>
-      <div className="bg">
-        <span></span><span></span><span></span>
-      </div>
+      <div className="bg"></div>
       <div className="wrap">
         <Header />
         
