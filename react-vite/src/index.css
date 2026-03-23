@@ -8,8 +8,8 @@
   --green: #2ecc71;
   --orange: #ff6b35;
   --purple: #6c5ce7;
-  --mic: 80px;
-  --mic-f: 32px;
+  --mic: 110px;
+  --mic-f: 44px;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
